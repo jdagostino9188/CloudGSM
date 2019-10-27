@@ -1,0 +1,55 @@
+##https://docs.ansible.com/ansible/latest/modules/gcp_compute_instance_module.html#gcp-compute-instance-module
+
+- name: create a disk
+  gcp_compute_disk:
+    name: disk-instance
+    size_gb: 50
+    source_image: gcr.io/cloud-marketplace/google/ubuntu1804
+    zone: us-central1-a
+    project: GameServers
+    auth_kind: serviceaccount
+    service_account_file: ~/serviceaccounts/ansible.json
+    state: present
+  register: disk
+
+- name: create a network
+  gcp_compute_network:
+    name: network-instance
+    project: GameServers
+    auth_kind: serviceaccount
+    service_account_file: ~/serviceaccounts/ansible.json
+    state: present
+  register: network
+
+- name: create a address
+  gcp_compute_address:
+    name: address-instance
+    region: us-central1
+    project: GameServers
+    auth_kind: serviceaccount
+    service_account_file: ~/serviceaccounts/ansible.json
+    state: present
+  register: address
+
+- name: create a instance
+  gcp_compute_instance:
+    name: test_object
+    machine_type: n1-standard-1
+    disks:
+    - auto_delete: 'true'
+      boot: 'true'
+      source: disk-instance
+    metadata:
+      startup-script-url: gs:://graphite-playground/bootstrap.sh
+      cost-center: '12345'
+    network_interfaces:
+    - network: default
+      access_configs:
+      - name: External NAT
+        nat_ip:
+        type: ONE_TO_ONE_NAT
+    zone: us-central1-a
+    project: test_project
+    auth_kind: serviceaccount
+    service_account_file: ~/serviceaccounts/ansible.json
+    state: present
