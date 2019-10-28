@@ -17,12 +17,12 @@
 - name: Create ArmA 3 Server
   hosts: localhost
   vars:
-    service_account_email: "ansible@gameservers-255600.iam.gserviceaccount.com"
+    service_account_email: "ansible-svc@gameservers-255600.iam.gserviceaccount.com"
     credentials_file: "~/serviceaccounts/ansible.json"
     project_id: "gameservers"
   tasks:
     - name: create instance
- gce:
+      gce:
         instance_names: arma3server
         zone: us-central1-a
         machine_type: n1-standard-1
@@ -31,29 +31,29 @@
         service_account_email: "{{ service_account_email }}"
         credentials_file: "{{ credentials_file }}"
         project_id: "{{ project_id }}"
-      register: gce
+      register: gcea
 
-    - name: Save host data
-      add_host:
-        hostname: "{{ item.public_ip }}"
-        groupname: gce_instances_ips
-      with_items: "{{ gce.instance_data }}"
+#- name: Save host data
+#    add_host:
+#    hostname: "{{ item.public_ip }}"
+#    groupname: gce_instances_ips
+#  with_items: "{{ gce.instance_data }}"
 
-    - name: Wait for SSH for instances
-      wait_for:
-        delay: 1
-        host: "{{ item.public_ip }}"
-        port: 22
-        state: started
-        timeout: 30
-      with_items: "{{ gce.instance_data }}"
+#- name: Wait for SSH for instances
+#  wait_for:
+#    delay: 1
+#    host: "{{ item.public_ip }}"
+#    port: 22
+#    state: started
+#    timeout: 30
+#  with_items: "{{ gce.instance_data }}"
 
-    - name: Configure Hosts
-      hosts: gce_instances_ips
-      become: yes
-      become_method: sudo
-      roles:
-        - my-role-one
-        - my-role-two
-      tags:
-        - config
+#- name: Configure Hosts
+#  hosts: gce_instances_ips
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - my-role-one
+#    - my-role-two
+#  tags:
+#    - config
