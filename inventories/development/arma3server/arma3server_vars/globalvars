@@ -1,0 +1,7 @@
+##global vars file
+
+gcp_project: gameservers-255600
+gcp_cred_kind: serviceaccount
+gcp_cred_file: ~/serviceaccounts/ansible.json
+zone: "us-central1-a"
+region: "us-central1"
