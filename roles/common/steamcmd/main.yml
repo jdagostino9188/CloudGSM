@@ -1,0 +1,12 @@
+---
+- name: Add SteamCMD User
+  user:
+     name: steam
+     comment: steamcmd user
+     uid: 1050
+     group: steam
+
+- name: Install SteamCMD
+  apt:
+     name: steamcmd
+     state: present
