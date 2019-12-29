@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: no
   vars_files:
-     - arma3server_vars/globalvars
+     - vars/globalvars
   tasks:
    - name: create a disk
      gcp_compute_disk:
