@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: no
   vars_files:
-     - ../common/vars/globalvars
+     - roles/common/vars/globalvars
   tasks:
    - name: create a disk
      gcp_compute_disk:
@@ -70,6 +70,7 @@
 - name: Manage new instances
   hosts: new_instances
   connection: ssh
-  sudo: True
+  become: yes
   roles:
-    - common
+    - steamcmd
+    - linuxgsm
