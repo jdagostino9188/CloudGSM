@@ -72,5 +72,5 @@
   connection: ssh
   become: yes
   roles:
-    - steamcmd
+    - ansible-steamcmd
     - linuxgsm
