@@ -6,7 +6,7 @@
   tasks:
    - name: create a disk
      gcp_compute_disk:
-         name: 'arma3test'
+         name: 'arma3server'
          size_gb: 50
          source_image: 'projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20191021'
          zone: "{{ zone }}"
@@ -29,7 +29,7 @@
      #     register: network
    - name: create a address
      gcp_compute_address:
-         name: 'arma3test'
+         name: 'arma3server'
          region: "{{ region }}"
          project: "{{ gcp_project }}"
          auth_kind: "{{ gcp_cred_kind }}"
@@ -41,7 +41,7 @@
    - name: create a instance
      gcp_compute_instance:
        state: present
-       name: 'arma3test'
+       name: 'arma3server'
        machine_type: n1-standard-1
        disks:
          - auto_delete: true           
