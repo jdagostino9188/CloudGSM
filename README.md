@@ -90,6 +90,7 @@ The pull request should include:
 
 ## Authors
 
+* **Josh Dagostino**
 * **Tim Lawrence**
 * **Rahul Sundaram**
 * **Kevin Fenzi**
