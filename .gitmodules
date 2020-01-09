@@ -1,0 +1,3 @@
+[submodule "roles/ansible-steamcmd"]
+	path = roles/ansible-steamcmd
+	url = https://github.com/damoun/ansible-steamcmd

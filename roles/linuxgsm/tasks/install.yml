@@ -1,0 +1,44 @@
+---
+
+- name: create arma3server group
+  group:
+    name: arma3server
+    gid: 1060
+    state: present
+
+- name: create arma3server user
+  user:
+   name: arma3server
+   group: arma3server
+   uid: 1061
+   state: present
+
+- name: get linuxgsm package
+  get_url:
+    url: https://linuxgsm.sh
+    dest: /home/arma3server/linuxgsm.sh
+    mode: u=rx
+
+    #- name: download linuxgsm
+    #  command: bash /home/arma3server/linuxgsm.sh arma3server
+    #  become: yes
+    #  become_user: arma3server
+
+- name: download linuxgsm
+  shell: bash ./linuxgsm.sh arma3server
+  become_user: arma3server
+  args:
+    chdir: /home/arma3server
+    executable: /bin/bash
+
+- name: copy config file
+  copy:
+    src: /home/jdagostino/github/itemcoy/itemcoy/roles/linuxgsm/group_vars/common.cfg
+    dest: /home/arma3server/lgsm/config-lgsm/arma3server/
+    owner: arma3server
+    mode: u=rw
+
+- name: install linuxgsm
+  command: /home/arma3server/arma3server auto-install
+  become: yes
+  become_user: arma3server
