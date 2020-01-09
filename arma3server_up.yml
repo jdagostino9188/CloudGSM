@@ -74,3 +74,4 @@
   roles:
     - ansible-steamcmd
     - linuxgsm
+    - idlehost

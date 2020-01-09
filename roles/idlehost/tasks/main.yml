@@ -1,0 +1,5 @@
+---
+
+- name: Power Off Instance
+  command: "systemctl shutdown"
+  become: yes
