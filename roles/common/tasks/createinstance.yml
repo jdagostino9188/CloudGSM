@@ -1,0 +1,22 @@
+---
+- name: Common - Create Compute Instance
+  gcp_compute_instance:
+    state: present
+    name: "{{ server_type }}"
+    machine_type: n1-standard-1
+    disks:
+      - auto_delete: true
+        boot: true
+        source: "{{ disk }}"
+    network_interfaces:
+         - access_configs:
+            - name: 'External NAT'
+              nat_ip: "{{ address }}"
+              type: 'ONE_TO_ONE_NAT'
+    zone: "{{ region | default('us-central1-a') }}"
+    project: "{{ gcp_project }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_cred_file }}"
+    scopes:
+       - https://www.googleapis.com/auth/compute
+  register: new_server

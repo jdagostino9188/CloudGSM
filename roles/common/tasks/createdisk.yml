@@ -1,0 +1,14 @@
+---
+- name: Common - Create Storage  
+  gcp_compute_disk:
+    name: "{{ server_type }}"
+    size_gb: 50
+    source_image: 'projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20191021'
+    zone: "{{ region | default('us-central1-a') }}"
+    project: "{{ gcp_project }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_cred_file }}"
+    scopes:
+      - https://www.googleapis.com/auth/compute
+    state: present
+  register: disk
