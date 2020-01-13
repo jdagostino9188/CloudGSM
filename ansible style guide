@@ -1,0 +1,25 @@
+ansible style guide
+==================================
+
+* Install and configure the pre-commit
+
+* Use 'yml' instead of 'yaml' 
+
+* do add '.j2' to the end of templates
+
+* Do not over truncate
+
+* Conform to `snake_case `rather than `camelCase`
+
+* in general let readablity trump grepability, ie: 
+
+DONT:
+- name: This is some play
+  module: name=thing arg=thing2 anotherlongerarg=thing arg4=anodheranth
+  
+DO:
+- name: This is some play
+  module:
+  - name: thing
+  - arg: thing2
+..etc
