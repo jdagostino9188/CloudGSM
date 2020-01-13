@@ -5,10 +5,14 @@
 ## - arma3server
 
 ## Name of server type from above
-server_type=
+server_type=arma3server
 
 ## Name of GCP project:
-gcp_project=
+gcp_project=gameservers-255600
 
-## Location of GCP credential file (in quotes)
-gcp_cred_file=""
+## Location of GCP credential file
+gcp_cred_file="~/serviceaccounts/ansible.json"
+
+## FOR ARMA3SERVER
+## Path to common.cfg
+common_path="/home/jdagostino/github/itemcoy/itemcoy/roles/linuxgsm/group_vars/common.cfg"

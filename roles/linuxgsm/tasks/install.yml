@@ -19,11 +19,6 @@
     dest: /home/arma3server/linuxgsm.sh
     mode: u=rx
 
-    #- name: download linuxgsm
-    #  command: bash /home/arma3server/linuxgsm.sh arma3server
-    #  become: yes
-    #  become_user: arma3server
-
 - name: download linuxgsm
   shell: bash ./linuxgsm.sh arma3server
   become_user: arma3server
@@ -33,7 +28,7 @@
 
 - name: copy config file
   copy:
-    src: /home/jdagostino/github/itemcoy/itemcoy/roles/linuxgsm/group_vars/common.cfg
+    src: "{{ common_path }}"
     dest: /home/arma3server/lgsm/config-lgsm/arma3server/
     owner: arma3server
     mode: u=rw
