@@ -2,8 +2,6 @@
 - name: Create an instance
   hosts: localhost
   gather_facts: no
-  #  vars_files:
-  #     - roles/common/vars/globalvars
   roles:
      - common
   tasks:
