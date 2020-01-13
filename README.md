@@ -2,7 +2,6 @@
 
 CloudGSM is a set of cloud applications designed to assist in fast and easy low-cost game server deployment.
 
-
  **Getting Started**
 These instructions will get you a copy of the project up and running on your local machine. 
 
@@ -106,3 +105,4 @@ All rights reserved
 > * Fedora Project Infrastructure Ansible
 > * ansible-examples repo
 > * Written with [StackEdit](https://stackedit.io/).
+
