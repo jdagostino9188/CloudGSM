@@ -4,11 +4,11 @@
 ## Currently Supported Game Servers:
 ## - arma3server
 
-## Name of server type from above
+## Name of server type from list of currently supported servers above
 server_type=
 
-## Name of GCP project:
+## Name of GCP project - this information comes from the cloud console:
 gcp_project=
 
-## Location of GCP credential file (in quotes)
+## Local directory of GCP credential file (in quotes)
 gcp_cred_file=""
