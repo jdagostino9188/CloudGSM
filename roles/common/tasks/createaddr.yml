@@ -1,0 +1,12 @@
+---
+- name: Common - Create Access Address
+  gcp_compute_address:
+    name: "{{ server_type }}"
+    region: "{{ region | default('us-central1') }}"
+    project: "{{ gcp_project }}"
+    auth_kind: serviceaccount
+    service_account_file: "{{ gcp_cred_file }}"
+    scopes:
+      - https://www.googleapis.com/auth/compute
+    state: present
+  register: address

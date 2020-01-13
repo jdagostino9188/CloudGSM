@@ -1,0 +1,14 @@
+[all:vars]
+
+## RENAME THIS FILE THE NAME OF GAME SERVER TYPE YOU WISH TO CREATE
+## Currently Supported Game Servers:
+## - arma3server
+
+## Name of server type from list of currently supported servers above
+server_type=
+
+## Name of GCP project - this information comes from the cloud console:
+gcp_project=
+
+## Local directory of GCP credential file (in quotes)
+gcp_cred_file=""

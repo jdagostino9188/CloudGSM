@@ -1,23 +1,7 @@
 ---
-- name: Add SteamCMD User
-  user:
-     name: steam
-     comment: steamcmd user
-     uid: 1050
 
-- name: create steamcmd dir
-  file:
-     path: /home/steam/steamcmd
-     state: directory
-     owner: steam
+- include: createdisk.yml
 
-- name: download steamcmd
-  get_url:
-    url: http://media.steampowered.com/installer/steamcmd_linux.tar.gz
-    dest: /home/steam/steamcmd
-    owner: steam
+- include: createaddr.yml
 
-- name: unpack steamcmd
-  unarchive:
-    src: /home/steam/steamcmd/steamcmd_linux.tar.gz
-    dest: /home/steam/steamcmd
+- include: createinstance.yml

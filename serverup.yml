@@ -1,0 +1,25 @@
+---
+- name: Create an instance
+  hosts: localhost
+  gather_facts: no
+  #  vars_files:
+  #     - roles/common/vars/globalvars
+  roles:
+     - common
+  tasks:
+
+   - name: Wait for SSH to come up
+     wait_for: host={{ address.address }} port=22 delay=10 timeout=600
+
+   - name: Add host to groupname
+     add_host: hostname={{ address.address }} groupname=new_servers
+
+
+- name: Manage new instances
+  hosts: new_servers
+  connection: ssh
+  become: yes
+  roles:
+    - ansible-steamcmd
+    - linuxgsm
+    - idlehost
