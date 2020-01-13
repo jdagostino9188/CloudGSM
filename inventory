@@ -4,6 +4,7 @@
 ## Currently Supported Game Servers:
 ## - arma3server
 
+<<<<<<< HEAD
 ## Name of server type from above
 server_type=arma3server
 
@@ -16,3 +17,13 @@ gcp_cred_file="~/serviceaccounts/ansible.json"
 ## FOR ARMA3SERVER
 ## Path to common.cfg
 common_path="/home/jdagostino/github/itemcoy/itemcoy/roles/linuxgsm/group_vars/common.cfg"
+=======
+## Name of server type from list of currently supported servers above
+server_type=
+
+## Name of GCP project - this information comes from the cloud console:
+gcp_project=
+
+## Local directory of GCP credential file (in quotes)
+gcp_cred_file=""
+>>>>>>> 5453d0e1501f0146f6583217d0bcae2a6c470c27
