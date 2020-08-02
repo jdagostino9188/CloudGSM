@@ -1,0 +1,45 @@
+_unit = _this select 0;
+_tipo = typeOf _unit;
+_loadout = "UK3CB_TKM_B_MK";
+switch _tipo do
+	{
+	case "I_G_officer_F": {_loadout = "UK3CB_TKA_I_TL"};
+	case "I_G_Soldier_AR_F": {_loadout = "UK3CB_TKA_I_MG"};
+	case "I_G_Soldier_LAT2_F": {_loadout = "UK3CB_TKA_I_AT"};
+	case "I_G_medic_F": {_loadout = "UK3CB_TKA_I_MD"};
+	case "I_G_engineer_F": {_loadout = "UK3CB_TKA_I_ENG"};
+	case "I_G_Soldier_GL_F": {_loadout = "UK3CB_TKA_I_GL"};
+	case "B_recon_TL_F": {_loadout = NATOSpecOp select 0};
+	case "B_CTRG_Soldier_TL_tna_F": {_loadout = NATOSpecOp select 0};
+	case "I_Soldier_SL_F": {_loadout = NATOSpecOp select 0};
+	case "O_T_Recon_TL_F": {_loadout = CSATSpecOp select 0};
+	case "B_recon_M_F": {_loadOut = NATOMarksman};
+	case "B_CTRG_Soldier_M_tna_F": {_loadOut = NATOMarksman};
+	case "I_Soldier_M_F": {_loadOut = NATOMarksman};
+	case "I_Sniper_F": {_loadOut = NATOMarksman};
+	case "O_T_Recon_M_F": {_loadout = CSATMarksman};
+	case "B_recon_medic_F": {_loadOut = NATOSpecOp select 7};
+	case "B_CTRG_Soldier_Medic_tna_F": {_loadOut = NATOSpecOp select 7};
+	case "I_medic_F": {_loadOut = NATOSpecOp select 7};
+	case "O_T_Recon_Medic_F": {_loadOut = CSATSpecOp select 7};
+	case "B_recon_LAT_F": {_loadOut = NATOSpecOp select 6};
+	case "B_CTRG_Soldier_LAT_tna_F": {_loadOut = NATOSpecOp select 6};
+	case "I_Soldier_LAT_F": {_loadOut = NATOSpecOp select 6};
+	case "O_T_Recon_LAT_F": {_loadout = CSATSpecOp select 6};
+	case "B_recon_F": {_loadOut = NATOSpecOp select 2};
+	case "B_CTRG_Soldier_tna_F": {_loadOut = NATOSpecOp select 2};
+	case "O_T_Recon_F": {_loadout = CSATSpecOp select 2};
+	case "B_recon_JTAC_F": {_loadOut = NATOSpecOp select 1};
+	case "B_CTRG_Soldier_JTAC_tna_F": {_loadOut = NATOSpecOp select 1};
+	case "I_Spotter_F": {_loadOut = NATOSpecOp select 1};
+	case "O_T_Recon_JTAC_F": {_loadOut = CSATSpecOp select 1};
+	case "B_recon_exp_F": {_loadOut = NATOSpecOp select 5};
+	case "B_CTRG_Soldier_Exp_tna_F": {_loadOut = NATOSpecOp select 5};
+	case "I_Soldier_exp_F": {_loadOut = NATOSpecOp select 5};
+	case "O_T_Recon_Exp_F": {_loadOut = CSATSpecOp select 5};
+	case "B_Patrol_Soldier_MG_F": {_loadOut = NATOSpecOp select 3};
+	case "B_CTRG_Soldier_AR_tna_F": {_loadOut = NATOSpecOp select 3};
+	};
+_unit setUnitLoadout _loadout;
+
+_unit selectWeapon (primaryWeapon _unit);
